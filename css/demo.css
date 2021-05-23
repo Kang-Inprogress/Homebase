@@ -427,3 +427,8 @@ a:focus {
 	border: solid 2px gray;
 	border-radius: 20px;
 }
+
+#count_number {
+	font-size: 36px;
+	font-weight: bold;
+}

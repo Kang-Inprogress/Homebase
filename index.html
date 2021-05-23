@@ -37,7 +37,7 @@
 			<div> <!--머신코드-->
                 <div id="section_subtitle">홈베이스: 모션인식을 활용한 야구 훈련 프로그램</div></br>
             <div style="text-align: center;"><button type="button" onclick="init()" class="StartButton">Start</button></div>
-            <div><canvas id="canvas" style="text-align: center;"></canvas></div>
+            <div style="text-align: center;"><canvas id="canvas" style="text-align: center;"></canvas></div>
             <div id="label-container"></div>
             <div id="counter">
                 <!-- addTextbox() 실행으로 들어갈 코드
@@ -67,7 +67,7 @@
                 }
                 
                 function addTextbox() {
-                    counter.innerHTML += "<h2>COUNT</h2><a id='count_number'>0</br></a><button type='button' onclick='RESET()'>RESET</button>";
+                    counter.innerHTML += "<h2>COUNT</h2><a id='count_number'>0</a> </br></br></br></br></br> <button type='button' onclick='RESET()'>RESET</button>";
                 }
                 async function init() {
                     const modelURL = URL + "model.json";
@@ -89,7 +89,7 @@
             
                     // append/get elements to the DOM
                     const canvas = document.getElementById("canvas");
-                    canvas.width = 1270; canvas.height = 768;
+                    canvas.width = 1600; canvas.height = 900;
                     ctx = canvas.getContext("2d");
                     labelContainer = document.getElementById("label-container");
                     for (let i = 0; i < maxPredictions; i++) { // and class labels
@@ -173,11 +173,11 @@
                         status = "Fail"
                     }
             
-                    for (let i = 0; i < maxPredictions; i++) {
-                        const classPrediction =
-                            prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-                        labelContainer.childNodes[i].innerHTML = classPrediction;
-                    }
+                    // for (let i = 0; i < maxPredictions; i++) {
+                    //     const classPrediction =
+                    //         prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+                    //     labelContainer.childNodes[i].innerHTML = classPrediction;
+                    // }
             
                     // finally draw the poses
                     drawPose(pose);
