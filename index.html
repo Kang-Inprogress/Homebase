@@ -37,7 +37,7 @@
 			<div> <!--머신코드-->
                 <div id="section_subtitle">홈베이스: 모션인식을 활용한 야구 훈련 프로그램</div></br>
             <div style="text-align: center;"><button type="button" onclick="init()" class="StartButton">Start</button></div>
-            <div style="text-align: center;"><canvas id="canvas"></canvas></div>
+            <div><canvas id="canvas" style="text-align: center;"></canvas></div>
             <div id="label-container"></div>
             <div id="counter">
                 <!-- addTextbox() 실행으로 들어갈 코드
@@ -89,12 +89,12 @@
             
                     // append/get elements to the DOM
                     const canvas = document.getElementById("canvas");
-                    canvas.width = 800; canvas.height = 600;
+                    canvas.width = 1270; canvas.height = 768;
                     ctx = canvas.getContext("2d");
-                    // labelContainer = document.getElementById("label-container");
-                    // for (let i = 0; i < maxPredictions; i++) { // and class labels
-                    //     labelContainer.appendChild(document.createElement("div"));
-                    // }
+                    labelContainer = document.getElementById("label-container");
+                    for (let i = 0; i < maxPredictions; i++) { // and class labels
+                        labelContainer.appendChild(document.createElement("div"));
+                    }
                     
                     addTextbox();
                 }
