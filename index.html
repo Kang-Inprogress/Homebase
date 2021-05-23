@@ -49,9 +49,14 @@
                 // the link to your model provided by Teachable Machine export panel
                 const URL = "./my_model/";
                 let model, webcam, ctx, labelContainer, maxPredictions;
-                
+                let counter = document.getElementById("counter");
+
                 function add_textbox() {
-                    document.getElementById("counter").innerHTML += "<input type='text' name='tbox'></br>";
+                    counter.innerHTML += "<input type='text' name='tbox' id='counter_textbox'></br>";
+                }
+
+                function set_textbox() {
+
                 }
                 
                 async function init() {
@@ -67,7 +72,7 @@
                     // Convenience function to setup a webcam
                     const size = 200;
                     const flip = true; // whether to flip the webcam
-                    webcam = new tmPose.Webcam(size, size, flip); // width, height, flip
+                    webcam = new tmPose.Webcam(800, 450, flip); // width, height, flip
                     await webcam.setup(); // request access to the webcam
                     await webcam.play();
                     window.requestAnimationFrame(loop);
@@ -81,7 +86,8 @@
                         labelContainer.appendChild(document.createElement("div"));
                     }
                     
-                    
+                    // Counter
+                    add_textbox();
                 }
             
                 async function loop(timestamp) {
