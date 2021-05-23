@@ -82,20 +82,19 @@
                     // Convenience function to setup a webcam
                     const size = 200;
                     const flip = true; // whether to flip the webcam
-                    webcam = new tmPose.Webcam(1024, 768, flip); // width, height, flip
-                    // webcam = new tmPose.Webcam(size, size, flip); 사이즈 테스트 중
+                    webcam = new tmPose.Webcam(800, 600, flip); // width, height, flip
                     await webcam.setup(); // request access to the webcam
                     await webcam.play();
                     window.requestAnimationFrame(loop);
             
                     // append/get elements to the DOM
                     const canvas = document.getElementById("canvas");
-                    canvas.width = 1280; canvas.height = 720;
+                    canvas.width = 800; canvas.height = 600;
                     ctx = canvas.getContext("2d");
-                    labelContainer = document.getElementById("label-container");
-                    for (let i = 0; i < maxPredictions; i++) { // and class labels
-                        labelContainer.appendChild(document.createElement("div"));
-                    }
+                    // labelContainer = document.getElementById("label-container");
+                    // for (let i = 0; i < maxPredictions; i++) { // and class labels
+                    //     labelContainer.appendChild(document.createElement("div"));
+                    // }
                     
                     addTextbox();
                 }
