@@ -423,5 +423,9 @@ a:focus {
 }
 
 #counter {
-	
+	text-align: center;
+   width: 800;
+   background-color: #fff;
+	border: solid 2px gray;
+	border-radius: 5px;
 }
