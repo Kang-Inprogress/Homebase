@@ -37,8 +37,9 @@
 			<div> <!--머신코드-->
                 <div id="section_subtitle">홈베이스: 모션인식을 활용한 야구 훈련 프로그램</div></br>
             <div style="text-align: center;"><button type="button" onclick="init()" class="StartButton">Start</button></div>
-            <div><canvas id="canvas"></canvas></div>
-            <div id="label-container"></div>
+            <div style="text-align: center;"><canvas id="canvas"></canvas></div>
+            <!--현재 상태 표시하는 텍스트 off 
+                <div id="label-container"></div> -->
             <div id="counter">
                 <!-- addTextbox() 실행으로 들어갈 코드
                 <h2>COUNT</h2>
@@ -83,7 +84,7 @@
                     const size = 200;
                     const flip = true; // whether to flip the webcam
                     webcam = new tmPose.Webcam(800, 450, flip); // width, height, flip
-                    webcam = new tmPose.Webcam(size, size, flip);
+                    // webcam = new tmPose.Webcam(size, size, flip); 사이즈 테스트 중
                     await webcam.setup(); // request access to the webcam
                     await webcam.play();
                     window.requestAnimationFrame(loop);
@@ -92,10 +93,11 @@
                     const canvas = document.getElementById("canvas");
                     canvas.width = size; canvas.height = size;
                     ctx = canvas.getContext("2d");
-                    labelContainer = document.getElementById("label-container");
-                    for (let i = 0; i < maxPredictions; i++) { // and class labels
-                        labelContainer.appendChild(document.createElement("div"));
-                    }
+                    // 현재 상태 표시하는 텍스트 off
+                    // labelContainer = document.getElementById("label-container");
+                    // for (let i = 0; i < maxPredictions; i++) { // and class labels
+                    //     labelContainer.appendChild(document.createElement("div"));
+                    // }
                     addTextbox();
                 }
             
