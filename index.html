@@ -82,9 +82,9 @@
                     maxPredictions = model.getTotalClasses();
             
                     // Convenience function to setup a webcam
-                    const size = 800;
+                    const size = 600;
                     const flip = true; // whether to flip the webcam
-                    webcam = new tmPose.Webcam(1280, 720, flip); // width, height, flip
+                    webcam = new tmPose.Webcam(size, size, flip); // width, height, flip
                     await webcam.setup(); // request access to the webcam
                     await webcam.play();
                     window.requestAnimationFrame(loop);
@@ -93,6 +93,8 @@
                     const canvas = document.getElementById("canvas");
                     canvas.width = 1440; canvas.height = 900;
                     ctx = canvas.getContext("2d");
+                    
+                    // 불필요한 정보(세부 클래스 내용)
                     // labelContainer = document.getElementById("label-container");
                     // for (let i = 0; i < maxPredictions; i++) { // and class labels
                     //     labelContainer.appendChild(document.createElement("div"));
