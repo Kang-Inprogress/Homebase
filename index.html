@@ -38,7 +38,7 @@
                 <div id="section_subtitle" style="text-align: center; font-size: 36px;">홈베이스: 모션인식을 활용한 야구 훈련 프로그램</div></br>
             <div style="text-align: center;" id="stbt"><button type="button" onclick="init()" class="StartButton">Start</button></div>
             <div style="text-align: center;">
-                <canvas id="canvas" style="text-align: center;"></canvas>
+                <canvas id="canvas"></canvas>
             </div>
             <!-- <div id="label-container"></div> -->
             <div id="counter">
@@ -91,7 +91,7 @@
             
                     // append/get elements to the DOM
                     const canvas = document.getElementById("canvas");
-                    canvas.width = 1440; canvas.height = 900;
+                    canvas.width = 1440; canvas.height = 900; canvas.style.textAlign = "center";
                     ctx = canvas.getContext("2d");
                     
                     // 불필요한 정보(세부 클래스 내용)
