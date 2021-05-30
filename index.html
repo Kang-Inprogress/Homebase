@@ -39,22 +39,24 @@
                 </tbody></table>
 			</section>
 			
-			<section class="section section--menu" id="Valentine">
+			<section class="section section--menu" style="background-image: url('./img/My\ Post.jpg');" id="Valentine">
 				<h2 class="section__title"></h2>
 
 			<div> <!--머신코드-->
-                <div id="section_subtitle" style="text-align: center;font-size: 70px; font-weight: bold;">HOMEBASE</div><br>
+                <div id="section_subtitle" style="text-align: center;font-size: 70px; font-weight: bold; color: black;">HOMEBASE</div><br>
             <div style="text-align: center;" id="stbt"><button type="button" onclick="init()" class="StartButton">START</button></div>
-            <div style="text-align: center;"> 
-                <canvas id="canvas" style="display: inline-block; padding: 0 0 0 60px"></canvas>
-            </div>
-            <!-- <div id="label-container"></div> -->
-            <div id="counter" style="width: 500px;">
-                <!-- addTextbox() 실행으로 들어갈 코드
-                <h2>COUNT</h2>
-                <a id="count_number">0</a>
-                <button type="button" onclick="RESET()">RESET</button> -->
-            </div>
+            <div class="div_section">
+                <div style="text-align: center;"> 
+                    <canvas id="canvas"></canvas>
+                </div>
+                <!-- <div id="label-container"></div> -->
+                <div id="counter">
+                    <!-- addTextbox() 실행으로 들어갈 코드
+                    <h2 style="font-size: 40px;">COUNT</h2>
+                    <a id="count_number" style="font-size: 70px; font-weight: bold;">0</a></br></br>
+                    <button type="button" onclick="RESET()" id="RESETbtn">RESET</button> -->
+                </div>
+            </div>    
             <script src="./index_files/tf.min.js.다운로드"></script>
             <script src="./index_files/teachablemachine-pose.min.js.다운로드"></script>
             <script type="text/javascript">
@@ -77,7 +79,7 @@
                 }
                 
                 function addTextbox() {
-                    counter.innerHTML += "<h2>COUNT</h2><a id='count_number'>0</a></br><button type='button' onclick='RESET()' style='border-radius: 10px;'>RESET</button>";
+                    counter.innerHTML += "<h2 style='font-size: 40px;'></h2>COUNT</h2><a id='count_number' style='font-size: 70px; font-weight: bold;'>0</a></br></br><button type='button' onclick='RESET()' id='RESETbtn'>RESET</button>";
                 }
                 async function init() {
                     const modelURL = URL + "model.json";
