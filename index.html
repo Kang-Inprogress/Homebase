@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0152)file:///C:/Users/YEONWOO/Documents/Study/%EC%84%BC%EC%84%9C%20%EB%B0%8F%20%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/LineMenuStyles-master/index.html -->
+<!-- saved from url=(0174)file:///C:/Users/YEONWOO/Documents/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1%20%EB%B0%9B%EC%9D%80%20%ED%8C%8C%EC%9D%BC/2%ED%8E%98%EC%9D%B4%EC%A7%80%20%EC%88%98%EC%A0%95/index.html -->
 <html lang="en" class="no-js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,10 +8,10 @@
 		<meta name="description" content="An open collection of menu styles that use the line as a creative design element">
 		<meta name="keywords" content="web design, styles, inspiration, line, pseudo-element, SVG, animation">
 		<meta name="author" content="Codrops">
-		<link rel="shortcut icon" href="./favicon.ico">
-		<link rel="stylesheet" type="text/css" href="./css/component.css">
-		<link rel="stylesheet" type="text/css" href="./css/demo.css">
-		<link rel="stylesheet" type="text/css" href="./css/normalize.css">
+		<link rel="shortcut icon" href="file:///C:/Users/YEONWOO/Documents/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1%20%EB%B0%9B%EC%9D%80%20%ED%8C%8C%EC%9D%BC/2%ED%8E%98%EC%9D%B4%EC%A7%80%20%EC%88%98%EC%A0%95/favicon.ico">
+		<link rel="stylesheet" type="text/css" href="./index_files/component.css">
+		<link rel="stylesheet" type="text/css" href="./index_files/demo.css">
+		<link rel="stylesheet" type="text/css" href="./index_files/normalize.css">
 		<!--[if IE]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -20,28 +20,43 @@
 		<div class="container">
 			<header class="section codrops-header">
 				<h1>
-                    <span>센서 및 인터페이스 8조</span></br>
-                    홈베이스</br>
-                    <a>모션인식을 활용한 야구훈련 프로그램</a></br>
+                    <span style="font-size: 40px;">센서 및 인터페이스 8조</span></br>
+                    <a style="font-size: 170px;">홈베이스</a></br></br>
+                    <a style="font-size: 50px;">모션인식을 활용한 야구훈련 프로그램</a></br>
                 </h1>
 				<!-- GitHub corner by Tim Holman -->
 				
 			</header>
 			<section class="section section--intro">
-				<p>The line is such a versatile element in web design. There are so many interesting possibilities when it comes to using the line to enhance user interaction with subtle animations. <br><br><strong>Let's explore some today.</strong></p>
+                <table>
+                    <tbody><tr>
+                        <td><img src="./index_files/start.gif" hspace="100" style="border-radius: 10px; border: solid 5px #fff"></br>CLICK START BUTTON</td>
+                        <td><img src="./index_files/form.gif" hspace="100" style="border-radius: 10px; border: solid 5px #fff"></br>READY</td>
+                        <td><img src="./index_files/swing.gif" hspace="100" style="border-radius: 10px; border: solid 5px #fff"></br>KILL'EM ALL</td>
+                    </tr><tr>
+                </tr></tbody></table>
+                
+                </tbody></table>
 			</section>
 			
 			<section class="section section--menu" id="Valentine">
 				<h2 class="section__title"></h2>
 
 			<div> <!--머신코드-->
-                <div id="section_subtitle">홈베이스: 모션인식을 활용한 야구 훈련 프로그램</div></br>
-            <div style="text-align: center;"><button type="button" onclick="init()" class="StartButton">Start</button></div>
-            <div><canvas id="canvas"></canvas></div>
-            <div id="label-container"></div>
-            <div id="counter"></div>
-            <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
+                <div id="section_subtitle" style="text-align: center;font-size: 70px; font-weight: bold;">HOMEBASE</div><br>
+            <div style="text-align: center;" id="stbt"><button type="button" onclick="init()" class="StartButton">START</button></div>
+            <div style="text-align: center;"> 
+                <canvas id="canvas" style="display: inline-block; padding: 0 0 0 60px"></canvas>
+            </div>
+            <!-- <div id="label-container"></div> -->
+            <div id="counter" style="width: 500px;">
+                <!-- addTextbox() 실행으로 들어갈 코드
+                <h2>COUNT</h2>
+                <a id="count_number">0</a>
+                <button type="button" onclick="RESET()">RESET</button> -->
+            </div>
+            <script src="./index_files/tf.min.js.다운로드"></script>
+            <script src="./index_files/teachablemachine-pose.min.js.다운로드"></script>
             <script type="text/javascript">
                 // More API functions here:
                 // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/pose
@@ -50,15 +65,20 @@
                 const URL = "./my_model/";
                 let model, webcam, ctx, labelContainer, maxPredictions;
                 let counter = document.getElementById("counter");
+                const count = 0;
 
-                function add_textbox() {
-                    counter.innerHTML += "<input type='text' name='tbox' id='counter_textbox'></br>";
+                function addCount() {
+                    count_number.innerHTML = ++count;
                 }
 
-                function set_textbox() {
-
+                function RESET() {
+                    count = 0;
+                    count_number.innerHTML = count;
                 }
                 
+                function addTextbox() {
+                    counter.innerHTML += "<h2>COUNT</h2><a id='count_number'>0</a></br><button type='button' onclick='RESET()' style='border-radius: 10px;'>RESET</button>";
+                }
                 async function init() {
                     const modelURL = URL + "model.json";
                     const metadataURL = URL + "metadata.json";
@@ -70,24 +90,28 @@
                     maxPredictions = model.getTotalClasses();
             
                     // Convenience function to setup a webcam
-                    const size = 200;
+                    const size = 600;
                     const flip = true; // whether to flip the webcam
-                    webcam = new tmPose.Webcam(800, 450, flip); // width, height, flip
+                    webcam = new tmPose.Webcam(size, size, flip); // width, height, flip
                     await webcam.setup(); // request access to the webcam
                     await webcam.play();
                     window.requestAnimationFrame(loop);
             
                     // append/get elements to the DOM
                     const canvas = document.getElementById("canvas");
-                    canvas.width = size; canvas.height = size;
+                    canvas.width = size; canvas.height = size; canvas.style.border = "solid 5px #fff"; canvas.style.borderRadius = "5px";
                     ctx = canvas.getContext("2d");
-                    labelContainer = document.getElementById("label-container");
-                    for (let i = 0; i < maxPredictions; i++) { // and class labels
-                        labelContainer.appendChild(document.createElement("div"));
-                    }
                     
-                    // Counter
-                    add_textbox();
+                    // 불필요한 정보(세부 클래스 내용)
+                    // labelContainer = document.getElementById("label-container");
+                    // for (let i = 0; i < maxPredictions; i++) { // and class labels
+                    //     labelContainer.appendChild(document.createElement("div"));
+                    // }
+                    
+                    addTextbox();
+                    
+                    // 시작 버튼 누르고 다른 요소들을 모두 불러오게 한 후 사라지게함
+                    document.getElementById("stbt").style.display="none";
                 }
             
                 async function loop(timestamp) {
@@ -96,7 +120,7 @@
                     window.requestAnimationFrame(loop);
                 }
                 var status = "stand"
-                var count = 0
+                
                 async function predict() {
                     // Prediction #1: run input through posenet
                     // estimatePose can take in an image, video or canvas html element
@@ -143,7 +167,7 @@
                     }
                     else if(prediction[6].probability.toFixed(2) > 0.50){
                         if(status == "Form"){
-                            count++
+                            addCount();
                             var audio = new Audio( count%10+'.mp3');
                             audio.play();
                         }
@@ -164,11 +188,11 @@
                         status = "Fail"
                     }
             
-                    for (let i = 0; i < maxPredictions; i++) {
-                        const classPrediction =
-                            prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-                        labelContainer.childNodes[i].innerHTML = classPrediction;
-                    }
+                    // for (let i = 0; i < maxPredictions; i++) {
+                    //     const classPrediction =
+                    //         prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+                    //     labelContainer.childNodes[i].innerHTML = classPrediction;
+                    // }
             
                     // finally draw the poses
                     drawPose(pose);

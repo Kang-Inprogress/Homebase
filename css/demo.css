@@ -29,6 +29,7 @@ body {
 	background: #fff;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	
 }
 
 a {
@@ -414,10 +415,21 @@ a:focus {
 	}
 
 }
-
-
 #contributers {
 	font-size: 1.5em;
 	margin: 1px;
 	color: #ffffff;
+}
+
+#counter {
+	text-align: center;
+   width: 800;
+   background-color: #fff;
+	border: solid 2px gray;
+	border-radius: 20px;
+}
+
+#count_number {
+	font-size: 36px;
+	font-weight: bold;
 }

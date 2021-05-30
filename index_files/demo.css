@@ -191,7 +191,7 @@ a:focus {
 
 .section:nth-of-type(odd):not(:first-child) {
 	color: #fff;
-	background: #2a282b;
+	background: #03aa03;
 }
 
 .section--menu {
@@ -199,12 +199,27 @@ a:focus {
 	overflow: hidden;
 	min-height: 80vh;
 	padding: 2em 0 8em;
+	background-color: #aa5805;
+}
+
+.StartButton {
+	background-color: #ffffff;
+	width: 100px;
+	border: none;
+	color: rgb(0, 0, 0);
+	padding: 15px 0;
+	text-align: center;
+	display: inline-block;
+	font-size: 15px;
+	margin: 4px;
+	cursor: pointer;
+	border-radius: 15px;
 }
 
 .break {
 	padding: 3em 0;
 	text-align: center;
-	background: #d94f5c;
+	background: #ff0000;
 }
 
 .section__title {
@@ -219,12 +234,19 @@ a:focus {
 	color: #d1d1d1;
 }
 
+
+#section_subtitle {
+	font-size: 1.2em;
+	color: #fff;
+}
+
 .break__title {
 	font-size: 1.85em;
 	font-weight: normal;
 	margin: 0;
-	color: #fff;
+	color: #ffffff;
 }
+
 
 .section--intro {
 	font-size: 2em;
@@ -248,11 +270,11 @@ a:focus {
 	padding: 0em 1em 4em;
 	text-align: center;
 	color: #fff;
-	background: #d94f5c url(../img/mouse.svg) no-repeat left 50% bottom 40px;
+	background: #00D4FF url(../img/mouse.svg) no-repeat left 50% bottom 40px;
 }
 
 .codrops-header h1 {
-	font-size: 3.25em;
+	font-size: 2em;
 	font-weight: 700;
 	line-height: 1;
 	position: relative;
@@ -261,13 +283,24 @@ a:focus {
 	letter-spacing: -1px;
 }
 
+.codrops-header h1 a{
+	font-size: 0.7em;
+	font-weight: 700;
+	line-height: 1;
+	position: relative;
+	z-index: 10;
+	margin: 0.5em 0 0;
+	letter-spacing: -1px;
+	color: #fff
+}
+
 .codrops-header h1 span {
 	font-size: 50%;
 	font-weight: normal;
 	display: block;
 	margin: 0.5em 0;
 	letter-spacing: 0;
-	color: #f48b95;
+	color: #fff;
 }
 
 /* Top Navigation Style */
@@ -380,4 +413,22 @@ a:focus {
 		font-size: 1em;
 	}
 
+}
+#contributers {
+	font-size: 1.5em;
+	margin: 1px;
+	color: #ffffff;
+}
+
+#counter {
+	text-align: center;
+   width: 800;
+   background-color: #fff;
+	border: solid 2px gray;
+	border-radius: 20px;
+}
+
+#count_number {
+	font-size: 36px;
+	font-weight: bold;
 }
