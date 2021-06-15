@@ -4,7 +4,7 @@
 		
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>HOMEBASE</title>
+		<title>Line Menu Styles</title>
 		<meta name="description" content="An open collection of menu styles that use the line as a creative design element">
 		<meta name="keywords" content="web design, styles, inspiration, line, pseudo-element, SVG, animation">
 		<meta name="author" content="Codrops">
@@ -25,23 +25,12 @@
 				<!-- GitHub corner by Tim Holman -->
 				
 			</header>
-			<!-- <section class="section section--intro">
-                <h1>HOW TO USE</h1>
-                <table>
-                    <tbody><tr>
-                        <td><img src="./index_files/start.gif" hspace="100" style="border-radius: 10px; border: solid 5px #fff"></br>CLICK START BUTTON</td>
-                        <td><img src="./index_files/form.gif" hspace="100" style="border-radius: 10px; border: solid 5px #fff"></br>READY</td>
-                        <td><img src="./index_files/swing.gif" hspace="100" style="border-radius: 10px; border: solid 5px #fff"></br>SWING!</td>
-                    </tr><tr>
-                    </tr></tbody>
-                </table>
-			</section> -->
 			
 			<section class="section section--menu" style="background-image: url('./img/My\ Post.jpg');" id="Valentine">
 				<h2 class="section__title"></h2>
 
 			<div> <!--머신코드-->
-                <div id="section_subtitle" style="text-align: center;font-size: 65px; font-weight: bold; color: black;">HOMEBASE</div><br>
+                <div id="section_subtitle" style="text-align: center; font-size: 50px; font-weight: bold; color: black;">HOMEBASE</div><br>
             <div style="text-align: center;" id="stbt"><button type="button" onclick="init()" class="StartButton">START</button></div>
             <div class="div_section">
                 <div style="text-align: center;"> 
@@ -50,7 +39,7 @@
                 <!-- <div id="label-container"></div> -->
                 <div id="counter">
                     <!-- addTextbox() 실행으로 들어갈 코드
-                    <h2 id="countTxt" style="font-size: 40px;">COUNT</h2>
+                    <h2 style="font-size: 40px;">COUNT</h2>
                     <a id="count_number" style="font-size: 70px; font-weight: bold;">0</a></br></br>
                     <button type="button" onclick="RESET()" id="RESETbtn">RESET</button> -->
                 </div>
@@ -65,12 +54,10 @@
                 const URL = "./my_model/";
                 let model, webcam, ctx, labelContainer, maxPredictions;
                 let counter = document.getElementById("counter");
-                var count = 0;
-                var count_number1 = document.getElementById("count_number"); // count_nubmer와 같다. 그냥 변수화 한 것
-                var countTxt = document.getElementById("countTxt");
+                const count = 0;
 
-                function addCount() { //숫자 표시 변경
-                    count_number.innerHTML = count;
+                function addCount() {
+                    count_number.innerHTML = ++count;
                 }
 
                 function RESET() {
@@ -79,7 +66,7 @@
                 }
                 
                 function addTextbox() {
-                    counter.innerHTML += "<h2 style='font-size: 40px;'>COUNT</h2><a id='count_number' style='font-size: 70px; font-weight: bold;'>0</a></br></br><button type='button' onclick='RESET()' id='RESETbtn'>RESET</button>";
+                    counter.innerHTML += "<h2 id='countTXT' style='font-size: 40px;'>COUNT</h2><a id='count_number' style='font-size: 70px; font-weight: bold;'>0</a></br></br><button type='button' onclick='RESET()' id='RESETbtn'>RESET</button>";
                 }
                 async function init() {
                     const modelURL = URL + "model.json";
@@ -109,6 +96,7 @@
                     // for (let i = 0; i < maxPredictions; i++) { // and class labels
                     //     labelContainer.appendChild(document.createElement("div"));
                     // }
+                    
                     addTextbox();
                     
                     // 시작 버튼 누르고 다른 요소들을 모두 불러오게 한 후 사라지게함
@@ -133,39 +121,34 @@
                     }
                     else if(prediction[1].probability.toFixed(2) == 1.00){
                         if(status == "stand"){
-                            countTxt.style.color = "green";
                             var audio = new Audio('Form.mp3');
                             audio.play();
                         }
                         status = "Form"
                     }
                     else if(prediction[2].probability.toFixed(2) == 1.00){
-                        if(status == "stand"){
-                            countTxt.style.color = "red";
+                        if(status == "Form" || status == "stand"){
                             var audio = new Audio( 'fail.mp3');
                             audio.play();
                         }
                         status = "Fail"
                     }
                     else if(prediction[3].probability.toFixed(2) == 1.00){
-                        if(status == "stand"){
-                            countTxt.style.color = "red";
+                        if(status == "Form" || status == "stand"){
                             var audio = new Audio( 'fail.mp3');
                             audio.play();
                         }
                         status = "Fail"
                     }
                     else if(prediction[4].probability.toFixed(2) == 1.00){
-                        if(status == "stand"){
-                            countTxt.style.color = "red";
+                        if(status == "Form" || status == "stand"){
                             var audio = new Audio( 'fail.mp3');
                             audio.play();
                         }
                         status = "Fail"
                     }
                     else if(prediction[5].probability.toFixed(2) == 1.00){
-                        if(status == "stand"){
-                            countTxt.style.color = "red";
+                        if(status == "Form" || status == "stand"){
                             var audio = new Audio( 'fail.mp3');
                             audio.play();
                         }
@@ -173,25 +156,21 @@
                     }
                     else if(prediction[6].probability.toFixed(2) > 0.50){
                         if(status == "Form"){
-                            countTxt.style.color = "green";
-                            count += 1;
                             addCount();
-                            var audio = new Audio(count % 10+'.mp3');
+                            var audio = new Audio( count%10+'.mp3');
                             audio.play();
                         }
                         status = "Swing"
                     }
                     else if(prediction[7].probability.toFixed(2) == 1.00){
-                        if(status == "Form" ){
-                            countTxt.style.color = "red";
+                        if(status == "Form" || status == "stand"){
                             var audio = new Audio( 'fail.mp3');
                             audio.play();
                         }
                         status = "Fail"
                     }
                     else if(prediction[8].probability.toFixed(2) == 1.00){
-                        if(status == "Form" ){
-                            countTxt.style.color = "red";
+                        if(status == "Form" || status == "stand"){
                             var audio = new Audio( 'fail.mp3');
                             audio.play();
                         }
@@ -221,45 +200,9 @@
                 }
             </script>
             </div>
-				<!-- <span class="link-copy" data-clipboard-text="file:///C:/Users/YEONWOO/Documents/Study/%EC%84%BC%EC%84%9C%20%EB%B0%8F%20%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/LineMenuStyles-master/index.html#Valentine"></span>
-				<nav class="menu menu--valentine">
-					<ul class="menu__list">
-						<li class="menu__item menu__item--current"><a href="file:///C:/Users/YEONWOO/Documents/Study/%EC%84%BC%EC%84%9C%20%EB%B0%8F%20%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/LineMenuStyles-master/index.html#" class="menu__link">Home</a></li>
-						<li class="menu__item"><a href="file:///C:/Users/YEONWOO/Documents/Study/%EC%84%BC%EC%84%9C%20%EB%B0%8F%20%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/LineMenuStyles-master/index.html#" class="menu__link">Shop</a></li>
-						<li class="menu__item"><a href="file:///C:/Users/YEONWOO/Documents/Study/%EC%84%BC%EC%84%9C%20%EB%B0%8F%20%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/LineMenuStyles-master/index.html#" class="menu__link">Reviews</a></li>
-						<li class="menu__item"><a href="file:///C:/Users/YEONWOO/Documents/Study/%EC%84%BC%EC%84%9C%20%EB%B0%8F%20%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/LineMenuStyles-master/index.html#" class="menu__link">News</a></li>
-						<li class="menu__item"><a href="file:///C:/Users/YEONWOO/Documents/Study/%EC%84%BC%EC%84%9C%20%EB%B0%8F%20%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/LineMenuStyles-master/index.html#" class="menu__link">Contact</a></li>
-					</ul>
-				</nav> -->
+				
 			</section>
-            <!-- 쓸모없어짐
-			<div class="break">
-				<h2 class="break__title">Contributions</h2></br>
-                <p id="contributers">
-                    안적어 
-                </p>
-			</div> -->
-<!-- 			
-			<section class="section section--menu" id="tantalid">
-				<h2 class="section__title">tantalid</h2>
-				<span class="link-copy" data-clipboard-text="file:///C:/Users/YEONWOO/Documents/Study/%EC%84%BC%EC%84%9C%20%EB%B0%8F%20%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/LineMenuStyles-master/index.html#tantalid"></span>
-				<nav class="menu menu--tantalid">
-					<ul class="menu__list">
-						<li class="menu__item menu__item--current"><a href="file:///C:/Users/YEONWOO/Documents/Study/%EC%84%BC%EC%84%9C%20%EB%B0%8F%20%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/LineMenuStyles-master/index.html#" class="menu__link">Home</a></li>
-						<li class="menu__item"><a href="file:///C:/Users/YEONWOO/Documents/Study/%EC%84%BC%EC%84%9C%20%EB%B0%8F%20%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/LineMenuStyles-master/index.html#" class="menu__link">Gallery</a></li>
-						<li class="menu__item"><a href="file:///C:/Users/YEONWOO/Documents/Study/%EC%84%BC%EC%84%9C%20%EB%B0%8F%20%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/LineMenuStyles-master/index.html#" class="menu__link">Clients</a></li>
-						<li class="menu__item"><a href="file:///C:/Users/YEONWOO/Documents/Study/%EC%84%BC%EC%84%9C%20%EB%B0%8F%20%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/LineMenuStyles-master/index.html#" class="menu__link">Shop</a></li>
-						<li class="menu__item"><a href="file:///C:/Users/YEONWOO/Documents/Study/%EC%84%BC%EC%84%9C%20%EB%B0%8F%20%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/LineMenuStyles-master/index.html#" class="menu__link">Contact</a></li>
-					</ul>
-				</nav>
-				<p class="info">Style created by <a href="https://ua.linkedin.com/in/andrii-polishchuk-4177904a">tantalid</a></p>
-			</section> -->
-			<!-- Check out the README.md for details on how to contribute -->
-			<!-- copy this section -->
-			
-			<!-- end copy -->
-			<!-- Related demos -->
-			
+            
 		</div>
 		<!-- /container -->
 		<script src="./index_files/classie.js.다운로드"></script>
